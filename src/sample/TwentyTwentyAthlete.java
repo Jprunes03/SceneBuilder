@@ -1,9 +1,10 @@
 package sample;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class TwentyTwentyAthlete extends Athlete {
+public class TwentyTwentyAthlete extends Athlete implements Serializable {
     //Fields
     private int Salary;
     private int Endorsements;
@@ -76,5 +77,7 @@ public class TwentyTwentyAthlete extends Athlete {
         }
 
     }
-
+        static void initialize(){
+            read("src/sample/TwentyTwentyData");
+        }
 }

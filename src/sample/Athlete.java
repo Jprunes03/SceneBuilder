@@ -1,9 +1,12 @@
 package sample;
+import javafx.stage.FileChooser;
+
+import java.io.*;
 import java.util.ArrayList;
 
 
 
-public class Athlete {
+public class Athlete implements Serializable {
     //Fields
     private static Controller myController;
     private static ArrayList<Athlete> athletes;
@@ -80,6 +83,38 @@ public class Athlete {
 
     public static void setAthletes(ArrayList<Athlete> athletes) {
         Athlete.athletes = athletes;
+    }
+
+
+    public static void save(){
+        if(athletes != null && !athletes.isEmpty()) {
+            try {
+                File savedModelFile = new File("serializedAllAthletes");
+                FileOutputStream savedModelFileStream = new FileOutputStream(savedModelFile);
+                ObjectOutputStream out = new ObjectOutputStream(savedModelFileStream);
+                out.writeObject(athletes);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    static public boolean restore(){
+
+       File savedModelFile = new File("serializedAllFilms");
+       if (savedModelFile.exists()){
+           try {
+               FileInputStream savedModelFileStream = new FileInputStream(savedModelFile);
+               ObjectInputStream in = new ObjectInputStream(savedModelFileStream);
+               athletes = (ArrayList<Athlete>)in.readObject();
+               if (!athletes.isEmpty()){
+                   return  true;
+               }
+           } catch (Exception ex)  {
+               ex.printStackTrace();
+           }
+       }
+       return false;
     }
 
     static void describeAll() {
