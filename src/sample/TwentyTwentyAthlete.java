@@ -43,7 +43,11 @@ public class TwentyTwentyAthlete extends Athlete implements Serializable {
         return description;
     }
 
+
+
+
     static void read(String dataFilePath) {
+        System.out.println (dataFilePath);
         Scanner scanner = null;
         try {
             File file = new File(dataFilePath);
@@ -59,6 +63,7 @@ public class TwentyTwentyAthlete extends Athlete implements Serializable {
 
         // Read from each line in data file until there are no more
         while (scanner.hasNext()) {
+            System.out.println("1");
             String next = scanner.nextLine();
             // Construct a new scanner for each to get its tokens
             Scanner lineScanner = new Scanner(next);

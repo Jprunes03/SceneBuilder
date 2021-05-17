@@ -34,6 +34,7 @@ public class Main extends Application {
     public void saveData() {
         Athlete.save();
         TwentyTwentyAthlete.save();
+        System.out.println("Hi");
     }
 
     public static void main(String[] args) {

@@ -101,7 +101,7 @@ public class Athlete implements Serializable {
 
     static public boolean restore(){
 
-       File savedModelFile = new File("serializedAllFilms");
+       File savedModelFile = new File("serializedAllAthletes");
        if (savedModelFile.exists()){
            try {
                FileInputStream savedModelFileStream = new FileInputStream(savedModelFile);

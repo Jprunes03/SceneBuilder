@@ -45,6 +45,7 @@ public class Controller {
 
         boolean thereWasData = restoreData();
         if (thereWasData){
+            System.out.println("12");
             updateAthleteUI();
             myAccordian.setExpandedPane(twentytwentyPane);
         }
@@ -57,7 +58,7 @@ public class Controller {
     public void TwentyTwentyImport(){
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(null);
-        if(selectedFile != null && selectedFile.exists()); {
+        if(selectedFile != null && selectedFile.exists()) {
             TwentyTwentyAthlete.read(selectedFile.getPath());
 
             updateAthleteUI();
